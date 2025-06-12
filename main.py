@@ -1,12 +1,12 @@
 # main.py
 import random
 
-# визначаємо верхню та нижню межу і максимальну кількість спроб для гравця
+# визначаємо межі та максимальну кількість спроб
 lower_limit = 1
 upper_limit = 1000
-max_attempt_number = 10
+max_attempt_number = 7  # згідно з умовою задачі
 
-# генеруємо рандомне число 
+# генеруємо рандомне число
 number_generated = random.randint(lower_limit, upper_limit)
 
 # Здогадка гравця
@@ -21,7 +21,7 @@ def get_guess():
         except ValueError:
             print("Неправильне введення. Прошу ввести правильне число")
 
-# Перевірка здогаки
+# Перевірка здогадки
 def check_guess(guess, number_generated):
     if guess == number_generated:
         return "Правильно"
@@ -30,7 +30,7 @@ def check_guess(guess, number_generated):
     else:
         return "Занадто велике"
 
-# відстежуємо кількість спроб, повідомляємо, що гру завершено
+# Гра
 def play_game():
     attempt_number = 0
     won = False
@@ -51,5 +51,5 @@ def play_game():
         print(f"На жаль, це була остання спроба! Правильне число - {number_generated}.")
 
 if __name__ == "__main__":
-    print("Ласкаво просимо вгадати число від 1 до 1000. У Вас є 7 спроб!")
+    print(f"Ласкаво просимо в гру 'Вгадай число'! Вгадай число від {lower_limit} до {upper_limit}. У тебе є {max_attempt_number} спроб.")
     play_game()
